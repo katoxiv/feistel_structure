@@ -1,0 +1,107 @@
+Overview
+
+This script provides a simple binary string encryption and decryption tool using a set of provided round keys. It uses basic bitwise operations like AND and XOR for performing the encryption and decryption tasks.
+
+Usage
+
+The script is designed to be used from the command line with the following syntax:
+
+
+
+python <script-name.py> [-d] <input> <rounds> <roundkey1> <roundkey2> ...
+
+Here are the arguments explained:
+
+    -d: (Optional) A flag indicating decryption mode. If this flag is present, the script will perform decryption. Otherwise, it will perform encryption.
+    <input>: The 8-bit binary string to be encrypted or decrypted.
+    <rounds>: The number of rounds to be used for the encryption or decryption process.
+    <roundkey1> <roundkey2> ...: A series of 4-bit round keys. The number of round keys should match the number of rounds specified.
+
+
+Functions
+
+
+
+encrypt(input, rounds, roundkeys)
+
+This function takes an 8-bit binary string, the number of rounds, and a list of round keys, and returns the encrypted 8-bit binary string.
+Parameters:
+
+    input (str): An 8-bit binary string to be encrypted.
+    rounds (int): The number of rounds to be used in the encryption process.
+    roundkeys (list): A list of 4-bit binary strings to be used as round keys.
+
+Returns:
+
+    (str): The encrypted 8-bit binary string.
+
+
+
+
+decrypt(input, rounds, roundkeys)
+
+This function takes an 8-bit binary string, the number of rounds, and a list of round keys, and returns the decrypted 8-bit binary string. It reverses the order of the round keys and then calls encrypt() to perform the decryption.
+Parameters:
+
+    input (str): An 8-bit binary string to be decrypted.
+    rounds (int): The number of rounds to be used in the decryption process.
+    roundkeys (list): A list of 4-bit binary strings to be used as round keys.
+
+Returns:
+
+    (str): The decrypted 8-bit binary string.
+
+
+
+and_gate(fir_str, sec_str)
+
+This function takes two binary strings and performs a bitwise AND operation between them, returning the resulting binary string.
+Parameters:
+
+    fir_str (str): The first binary string.
+    sec_str (str): The second binary string.
+
+
+
+Returns:
+
+    (str): The resulting binary string from the AND operation.
+
+
+
+xor(fir_str, sec_str)
+
+This function takes two binary strings and performs a bitwise XOR operation between them, returning the resulting binary string.
+Parameters:
+
+    fir_str (str): The first binary string.
+    sec_str (str): The second binary string.
+
+
+Returns:
+
+    (str): The resulting binary string from the XOR operation.
+
+
+
+Error Handling
+
+The script contains error handling code to check for valid input formats and to provide usage information in case of incorrect input. If an invalid input is detected, the script will display a usage message and exit.
+Examples
+
+
+
+Here are some examples of how to use the script from the command line:
+Encryption
+
+
+
+python <script-name.py> 10101010 3 1100 1010 1001
+
+Decryption
+
+
+
+python <script-name.py> -d 01010101 3 1100 1010 1001
+
+In these examples, replace <script-name.py> with the name of the script file, and adjust the input binary string, number of rounds, and round keys as needed.
