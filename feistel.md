@@ -1,4 +1,4 @@
-# Encryption/Decryption Program
+# Feistel Structure Cryptography
 
 ## Program Description
 
